@@ -1,0 +1,8 @@
+ Cleanup;⎕USING;rk;rc
+ rk←GetRegKey,∆Log
+ :If 0≠rc←#.WinReg.DeleteSubKey rk
+     ⎕←'Delete this key:'
+     ⎕←'   ',rk
+     ⎕←'from the Windows Registry failed. Please delete with the RegEditor;'
+     ⎕←'Otherwise the next test will fail!'
+ :EndIf

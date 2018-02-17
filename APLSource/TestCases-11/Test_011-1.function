@@ -1,0 +1,31 @@
+ R←Test_011(stopFlag batchFlag);q;t;all;buffer;⎕TRAP;noOf;TS;rc;log;source
+⍝ Creates a new source without specifying the log (defaults to "Application") and writes to it.
+⍝ Does not only create stuff but also cleans up behind itself.
+ R←∆Failed
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+
+ ⎕USING←'System.Diagnostics,System.dll' ''
+ log←''
+ source←'Test_11_APLTree'
+
+ TS←' '~⍨⍕1↓⎕TS
+ q←⎕NEW ##.WindowsEventLog(,⊂source)
+ all←''
+ q.WriteInfo t←'Server started ',TS
+ all,←⊂t
+ q.WriteWarning t←'Low on memory ',TS
+ all,←⊂t
+ q.WriteError t←'Fatal error, server stopped ',TS
+ all,←⊂t
+ q.WriteInfo t←'Server started ',TS
+ all,←⊂t
+
+ noOf←q.NumberOfLogEntries
+ buffer←q.ReadThese(noOf⌊100){(⍵-⍺)+(~⎕IO)+⍳⍺}noOf
+ →GoToTidyUp(⍴all)≠+/∨/¨all⍷¨⊂1↓∊(⎕UCS 13),¨buffer
+
+ R←∆OK
+
+∆TidyUp:
+ rc←#.WinReg.DeleteSubKey'HKLM\SYSTEM\CurrentControlSet\Services\EventLog\Application\',source
+ ⍎(0≠rc)/'. ??'

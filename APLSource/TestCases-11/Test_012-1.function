@@ -1,0 +1,37 @@
+ R←Test_012(stopFlag batchFlag);q;t;all;buffer;⎕TRAP;TS;noOf;rc;source;log
+⍝ Creates a custom log with a new source and writes to it.
+⍝ Does not only create stuff but also cleans up behind itself.
+ R←∆Failed
+ ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
+
+ ⎕USING←'System.Diagnostics,System.dll' ''
+ log←∆CustomLog
+ source←'FooGoo_APLTree'
+
+ TS←' '~⍨⍕1↓⎕TS
+ q←⎕NEW ##.WindowsEventLog(log source)
+ all←''
+ q.WriteInfo t←'Server started ',TS
+ all,←⊂t
+ q.WriteWarning t←'Low on memory ',TS
+ all,←⊂t
+ q.WriteError t←'Fatal error, server stopped ',TS
+ all,←⊂t
+ q.WriteInfo t←'Server started ',TS
+ all,←⊂t
+
+ noOf←q.NumberOfLogEntries
+ buffer←q.ReadThese(noOf⌊100){(⍵-⍺)+(~⎕IO)+⍳⍺}noOf
+ →GoToTidyUp(⍴all)≠+/∨/¨all⍷¨⊂1↓∊(⎕UCS 13),¨buffer
+
+ R←∆OK
+
+∆TidyUp:
+ rc←#.WinReg.DeleteSubKey GetRegKey,log
+ :If 0≠rc
+ :AndIf 0=batchFlag
+     ⎕←'*** Attempt to delete:'
+     ⎕←'    ',GetRegKey,log
+     ⎕←'  failed: ',#.WinSys.GetMsgFrom rc
+     ⎕←'  Make sure that you delete this before executing the test suite again!'
+ :EndIf
