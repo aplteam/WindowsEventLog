@@ -1,6 +1,9 @@
 # Managing the Windows Event Log
 
 
+`WindowsEventLog` is a member of the APLTree library. The library is a collection of classes etc. that aim to support the Dyalog APL programmer. Search GitHub for "apltree" and you will find solutions to many every-day problems Dyalog APL programmers might have to solve.
+
+
 ## Overview
 
 This class offers methods useful to read from and write to the Windows Event Log.
