@@ -37,16 +37,8 @@
       :Access Public Shared
       ⍝ * 1.7.0
       ⍝   * Converted from the APL wiki to GitHub
-      ⍝ * 1.6.0
-      ⍝   * New method `History`.
-      ⍝   * `WindowsEventLog` is now managed by acre 3.
-      ⍝ * 1.5.2
-      ⍝   * Documentation was faulty.
-      ⍝ * 1.5.1
-      ⍝   * Test cases improved.
-      ⍝ * 1.5.0
-      ⍝   * The two-item constructor now accepts an empty text vector as "Log". This defaults to
-      ⍝     "Application" then.
+      ⍝\\
+      ⍝ For information regarding older versions see <https://github.com/aplteam/WindowsEventLog/releases>
     ∇
 
     :Property Log
