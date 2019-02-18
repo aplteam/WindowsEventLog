@@ -5,23 +5,25 @@
  #.FilesAndDirs.PolishCurrentDir
  #.Tester.EstablishHelpersIn ⍬
  rk←GetRegKey,∆Log
- :If #.WinReg.DoesKeyExist rk
-     rc←#.WinReg.DeleteSubKey rk   ⍝ This may well fail even if you have admin rights. Delete key via Registry Editor then!
-     :If 0≠rc
-         ⎕←'*** Attempt to delete:'
-         ⎕←'      ',rk
-         ⎕←'    has failed: ',(#.WinSys.GetMsgFrom rc),'; rc=',⍕rc
-     :EndIf
- :EndIf
  :If 0=#.WinSys.IsRunningAsAdmin
      ⎕←'*** Sorry, but in order to run this test suite successfully this WS must be run as admin.'
      ⎕←'    This is because it will add a new source:'
      ⎕←'      ',rk
      ⎕←'    to the "Application" log; this requires the WS to run with elevated rights.'
- :ElseIf #.WinReg.DoesKeyExist rk
-     ⎕←'*** This Windows Registry key:'
-     ⎕←'      ',rk
-     ⎕←'    does exist but MUST NOT before the test suite can be executed successfully again!'
  :Else
-     r←1
+     :If #.WinReg.DoesKeyExist rk
+         rc←#.WinReg.DeleteSubKey rk   ⍝ This may well fail even if you have admin rights. Delete key via Registry Editor then!
+         :If 0≠rc
+             ⎕←'*** Attempt to delete:'
+             ⎕←'      ',rk
+             ⎕←'    has failed: ',(#.WinSys.GetMsgFrom rc),'; rc=',⍕rc
+         :EndIf
+     :EndIf
+     :If #.WinReg.DoesKeyExist rk
+         ⎕←'*** This Windows Registry key:'
+         ⎕←'      ',rk
+         ⎕←'    does exist but MUST NOT before the test suite can be executed successfully again!'
+     :Else
+         r←1
+     :EndIf
  :EndIf

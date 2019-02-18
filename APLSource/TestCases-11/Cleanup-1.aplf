@@ -1,6 +1,7 @@
  Cleanup;⎕USING;rk;rc
  rk←GetRegKey,∆Log
- :If 0≠rc←#.WinReg.DeleteSubKey rk
+ :If #.WinSys.IsRunningAsAdmin
+ :AndIf 0≠rc←#.WinReg.DeleteSubKey rk
      ⎕←'Delete this key:'
      ⎕←'   ',rk
      ⎕←'from the Windows Registry failed. Please delete with the RegEditor;'

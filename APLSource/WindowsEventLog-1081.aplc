@@ -24,19 +24,19 @@
 ⍝ Author: Kai Jaeger ⋄ APL Team Ltd\\
 ⍝ Homepage: <http://aplwiki.com/WindowsEventLog>
 
-    :Include ##.APLTreeUtils
+    :Include APLTreeUtils
 
     ⎕io←1 ⋄ ⎕ml←3
 
     ∇ r←Version
       :Access Public Shared
-      r←(Last⍕⎕THIS)'1.7.0.2' '2018-02-16'
+      r←(Last⍕⎕THIS)'1.7.1.3' '2019-02-18'
     ∇
 
     ∇ History
       :Access Public Shared
-      ⍝ * 1.7.0
-      ⍝   * Converted from the APL wiki to GitHub
+      ⍝ * 1.7.1
+      ⍝   * :Include APLTreeUtils fixed
       ⍝\\
       ⍝ For information regarding older versions see <https://github.com/aplteam/WindowsEventLog/releases>
     ∇
