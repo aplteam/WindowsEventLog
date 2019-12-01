@@ -2,7 +2,7 @@
 ⍝ Creates a new source in the "Application" log and writes to it.
 ⍝ Does not only create stuff but also cleans up behind itself.
 
- R←∆Failed
+ R←T._Failed
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
 
  ⎕USING←'System.Diagnostics,System.dll' ''
@@ -22,9 +22,9 @@
  all,←⊂t
  noOf←q.NumberOfLogEntries
  buffer←q.ReadThese(noOf⌊100){(⍵-⍺)+(~⎕IO)+⍳⍺}noOf
- →GoToTidyUp(⍴all)≠+/∨/¨all⍷¨⊂1↓∊(⎕UCS 13),¨buffer
- R←∆OK
+ →T.GoToTidyUp(⍴all)≠+/∨/¨all⍷¨⊂1↓∊(⎕UCS 13),¨buffer
+ R←T._OK
 
 ∆TidyUp:
- rc←#.WinReg.DeleteSubKey'HKLM\SYSTEM\CurrentControlSet\Services\EventLog\Application\',source
+ rc←##.WinReg.DeleteSubKey'HKLM\SYSTEM\CurrentControlSet\Services\EventLog\Application\',source
  ⍎(0≠rc)/'. ??'

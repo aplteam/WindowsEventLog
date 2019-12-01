@@ -1,7 +1,7 @@
  R←Test_011(stopFlag batchFlag);q;t;all;buffer;⎕TRAP;noOf;TS;rc;log;source
 ⍝ Creates a new source without specifying the log (defaults to "Application") and writes to it.
 ⍝ Does not only create stuff but also cleans up behind itself.
- R←∆Failed
+ R←T._Failed
  ⎕TRAP←(999 'C' '. ⍝ Deliberate error')(0 'N')
 
  ⎕USING←'System.Diagnostics,System.dll' ''
@@ -22,10 +22,10 @@
 
  noOf←q.NumberOfLogEntries
  buffer←q.ReadThese(noOf⌊100){(⍵-⍺)+(~⎕IO)+⍳⍺}noOf
- →GoToTidyUp(⍴all)≠+/∨/¨all⍷¨⊂1↓∊(⎕UCS 13),¨buffer
+ →T.GoToTidyUp(⍴all)≠+/∨/¨all⍷¨⊂1↓∊(⎕UCS 13),¨buffer
 
- R←∆OK
+ R←T._OK
 
 ∆TidyUp:
- rc←#.WinReg.DeleteSubKey'HKLM\SYSTEM\CurrentControlSet\Services\EventLog\Application\',source
+ rc←##.WinReg.DeleteSubKey'HKLM\SYSTEM\CurrentControlSet\Services\EventLog\Application\',source
  ⍎(0≠rc)/'. ??'
