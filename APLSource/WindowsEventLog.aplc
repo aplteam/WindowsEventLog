@@ -30,13 +30,13 @@
 
     ∇ r←Version
       :Access Public Shared
-      r←(Last⍕⎕THIS)'1.7.1.4' '2019-02-18'
+      r←(Last⍕⎕THIS)'2.0.0.5' '2020-03-23'
     ∇
 
     ∇ History
       :Access Public Shared
-      ⍝ * 1.7.1
-      ⍝   * :Include APLTreeUtils fixed
+      ⍝ * 2.0.0
+      ⍝   * BREAKING CHANGE: File extension changed from .DYALOG to .APLC
       ⍝\\
       ⍝ For information regarding older versions see <https://github.com/aplteam/WindowsEventLog/releases>
     ∇
