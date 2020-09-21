@@ -1,0 +1,1 @@
+{  alias: "",  api: "WindowsEventLog",  assets: "",  date: "2020-09-21",  description: "Tools to read from and write to the Windows Event Log",  group: "aplteam",  name: "WindowsEventLog",  project_url: "https://github.com/aplteam/WindowsEventLog",  source: "",  tags: "apltree;windows-event-log;windows",  version: "3.0.0",}
