@@ -1,0 +1,1 @@
+{  alias: "",  api: "WinReg",  assets: "",  date: "2020-09-21",  description: "Tools for dealing with the Windows Registry",  group: "aplteam",  name: "WinReg",  project_url: "https://github.com/aplteam/WinReg",  source: "",  tags: "apltree;windows-registry;windows",  uri: "https://tatin.dev/aplteam-WinReg-5.0.1",  version: "5.0.1",}

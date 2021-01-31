@@ -1,4 +1,4 @@
- R←Test_012(stopFlag batchFlag);q;t;all;buffer;⎕TRAP;TS;noOf;rc;source;log
+ R←Test_Misc_012(stopFlag batchFlag);q;t;all;buffer;⎕TRAP;TS;noOf;rc;source;log
 ⍝ Creates a custom log with a new source and writes to it.
 ⍝ Does not only create stuff but also cleans up behind itself.
  R←T._Failed
@@ -27,11 +27,11 @@
  R←T._OK
 
 ∆TidyUp:
- rc←##.WinReg.DeleteSubKey GetRegKey,log
+ rc←WinReg.DeleteSubKey GetRegKey,log
  :If 0≠rc
  :AndIf 0=batchFlag
      ⎕←'*** Attempt to delete:'
      ⎕←'    ',GetRegKey,log
-     ⎕←'  failed: ',##.WinSys.GetMsgFrom rc
+     ⎕←'  failed: ',WinSys.GetMsgFrom rc
      ⎕←'  Make sure that you delete this before executing the test suite again!'
  :EndIf
