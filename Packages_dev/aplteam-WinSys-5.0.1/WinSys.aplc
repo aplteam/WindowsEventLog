@@ -13,11 +13,13 @@
 
     ∇ r←Version
       :Access Public shared
-      r←'WinSys' '5.0.0.14' '2020-09-20'
+      r←'WinSys' '5.0.1+17' '2021-03-02'
     ∇
 
     ∇ History
       :Access Public shared
+      ⍝ * 5.0.1
+      ⍝   * Package config corrected
       ⍝ * 5.0.0
       ⍝   * Requires Dyalog 18.0 or better now
       ⍝   * Internal changes:

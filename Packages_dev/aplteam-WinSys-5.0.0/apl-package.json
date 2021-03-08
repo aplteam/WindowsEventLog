@@ -1,1 +1,0 @@
-{  alias: "",  api: "WinSys",  assets: "",  date: "2020-09-20",  description: "Windows-only OS calls and system infos",  group: "aplteam",  name: "WinSys",  project_url: "https://github.com/aplteam/WinSys",  source: "",  tags: "apltree;windows;os-tools",  uri: "https://tatin.dev/aplteam-WinSys-5.0.0",  version: "5.0.0",}
