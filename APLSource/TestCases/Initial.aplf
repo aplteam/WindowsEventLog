@@ -1,8 +1,7 @@
- {r}←Initial;rk;rc;Stop
+ {success}←Initial;rk;rc;Stop
 ⍝ https://msdn.microsoft.com/en-us/library/system.diagnostics.eventlog(v=vs.110).aspx
  ⎕IO←0 ⋄ ⎕ML←1
- r←0
- FilesAndDirs.PolishCurrentDir
+ success←0
  rk←GetRegKey,∆Log
  Stop←{⎕←⍵ ⋄ 1:shy←0/⍞}
  :If 0=WinSys.IsRunningAsAdmin
@@ -27,6 +26,6 @@
          ⎕←'    does exist but MUST NOT before the test suite can be executed successfully again!'
          Stop'Press <enter> to continue'
      :Else
-         r←1
+         success←1
      :EndIf
  :EndIf
