@@ -28,7 +28,7 @@
 
     ∇ r←Version
       :Access Public Shared
-      r←'WindowsEventLog' '3.0.1+13' '2021-03-02'
+      r←'WindowsEventLog' '3.0.1+14' '2021-03-02'
     ∇
 
     ∇ History
