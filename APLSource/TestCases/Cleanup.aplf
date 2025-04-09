@@ -1,9 +1,10 @@
- Cleanup;⎕USING;rk;rc
+ Cleanup;⎕USING;rk;rc;msg
  rk←GetRegKey,∆Log
  :If WinSys.IsRunningAsAdmin
  :AndIf 0≠rc←WinReg.DeleteSubKey rk
-     ⎕←'Delete this key:'
-     ⎕←'   ',rk
-     ⎕←'from the Windows Registry failed. Please delete with the RegEditor;'
-     ⎕←'Otherwise the next test will fail!'
+     msg←''
+     msg,←⊂'>>> Delete this key:'
+     msg,←⊂'    ',rk
+     msg,←⊂'    from the Windows Registry failed. Please delete with RegEdit: otherwise the next test run will fail!'
+     CommTools.Pause msg
  :EndIf
