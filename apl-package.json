@@ -19,5 +19,5 @@
   source: "APLSource/WindowsEventLog.aplc",
   tags: "windows-event-log",
   userCommandScript: "",
-  version: "4.0.0+17",
+  version: "4.1.0+19",
 }

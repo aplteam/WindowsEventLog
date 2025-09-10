@@ -43,6 +43,8 @@
 
     ∇ History
       :Access Public Shared
+      ⍝ * 4.1.0
+      ⍝   LICENSE updated
       ⍝ * 4.0.0
       ⍝   * Potentially breaking: `Version` returns now a char vector stemming from the package config file
       ⍝   * Packages updated (development only)
